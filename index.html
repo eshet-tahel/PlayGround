@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#100d20" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><text y=%22.9em%22 font-size=%2256%22>✦</text></svg>">
+  <title>King of Shadows — A Wandbound Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="scene" aria-label="3D magical adventure game"></canvas>
+    <div class="vignette"></div>
+    <header class="hud">
+      <div class="brand"><span class="brand-mark">✦</span><span>THE VEIL<span class="brand-sub">A WAND-BOUND TALE</span></span></div>
+      <div class="objective"><span class="objective-kicker">YOUR QUEST</span><span id="objective-text">Find the path through the cursed wood</span></div>
+      <div class="status-card">
+        <div class="status-top"><span class="health-label">LIFE FORCE</span><span id="health-value">100</span></div>
+        <div class="health-track"><div id="health-fill"></div></div>
+        <div class="foe-count"><span class="pulse-dot"></span><span id="foe-label">5 shadows remain</span></div>
+      </div>
+    </header>
+    <div class="crosshair" aria-hidden="true"><i></i><b></b></div>
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <div class="spell-hint" id="spell-hint"><span class="keycap">CLICK</span> or <span class="keycap">SPACE</span> to cast <span class="hint-spark">✦</span></div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joy-wrap"><div id="joystick" class="joystick"><div class="joy-ring"></div><div id="joy-knob" class="joy-knob"></div></div><span class="control-caption">MOVE</span></div>
+      <button id="cast-button" class="cast-button" aria-label="Cast spell"><span class="cast-icon">✧</span><span>CAST</span></button>
+    </div>
+    <section id="intro" class="overlay">
+      <div class="intro-card">
+        <div class="eyebrow"><span></span> AN ADVENTURE IN THE VEIL <span></span></div>
+        <h1>The road to<br><em>Shadowkeep</em></h1>
+        <p class="intro-copy">Witches haunt the old road. The dead have risen. Only your wand can break the curse between you and the castle.</p>
+        <div class="quest-stats"><div><b>05</b><span>FOES TO FACE</span></div><div><b>✧</b><span>YOUR WAND</span></div><div><b>∞</b><span>ONE DESTINY</span></div></div>
+        <button id="start-button" class="primary-button">BEGIN YOUR JOURNEY <span>→</span></button>
+        <div class="controls-copy"><span>WASD / ARROWS</span> move <i>·</i> <span>CLICK / SPACE</span> cast <i>·</i> <span>SHIFT</span> sprint</div>
+        <div class="touch-copy">Use the left stick to move and tap CAST to fire.</div>
+      </div>
+      <div class="intro-seal">✦</div>
+    </section>
+    <section id="victory" class="overlay hidden">
+      <div class="victory-card">
+        <div class="victory-crown">♛</div><div class="eyebrow">THE VEIL HAS FALLEN</div>
+        <h2>King of<br><em>Shadows</em></h2>
+        <p>The road is yours. The castle remembers your name.</p>
+        <button id="replay-button" class="primary-button">WALK THE ROAD AGAIN <span>↻</span></button>
+      </div>
+    </section>
+    <section id="defeat" class="overlay hidden">
+      <div class="victory-card defeat-card">
+        <div class="victory-crown">☾</div><div class="eyebrow">THE WOOD CLAIMS ANOTHER</div>
+        <h2>Not the<br><em>end.</em></h2><p>Gather your courage. Shadowkeep still waits.</p>
+        <button id="retry-button" class="primary-button">RISE AGAIN <span>↻</span></button>
+      </div>
+    </section>
+    <div class="bottom-note"><span>✦</span> SHADOWKEEP LIES BEYOND THE VEIL</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
